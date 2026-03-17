@@ -1,9 +1,0 @@
-# Configuración del editor
-.idea/
-
-# Python
-__pycache__/
-*.pyc
-
-# Archivos de datos
-tasks.json
