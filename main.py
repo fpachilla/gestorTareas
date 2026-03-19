@@ -1,19 +1,5 @@
-import json
-
-class Tarea:
-
-    contadorTareas = 0
-
-    def __init__ (self, titulo, descripcion, prioridad, estado):
-        Tarea.contadorTareas += 1
-        self._idTarea = Tarea.contadorTareas
-        self._titulo = titulo
-        self._descripcion = descripcion
-        self._prioridad = prioridad
-        self._estado = estado
-
-    def __str__(self):
-        return f'ID: {self._idTarea}, titulo: {self._titulo}, descripcion: {self._titulo}, prioridad: {self._prioridad}, estado: {self._estado}'
+from storage import *
+from tareas import Tarea
 
 listaTareas = []
 while True:
@@ -25,8 +11,6 @@ while True:
     3-Marcar tarea como completada
     4-Eliminar tarea
     5-Guardar datos
-    
-    Holamundo :)
     
     ''')
 
@@ -87,18 +71,5 @@ while True:
             print("Debe ingresar un número entero.")
 
     elif seleccion_tarea == "5":
-        archivo = open('tasks.json', 'w', encoding='utf8')
 
-        datos = []
-
-        for tarea in listaTareas:
-            datos.append({
-                "id": tarea._idTarea,
-                "title": tarea._titulo,
-                "desc": tarea._descripcion,
-                "prioridad": tarea._prioridad,
-                "estado": tarea._estado
-            })
-
-        with open("tasks.json", "w", encoding="utf8") as archivo:
-            json.dump(datos, archivo, indent=4)
+        guardar_tareas(listaTareas)
