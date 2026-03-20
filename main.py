@@ -1,5 +1,6 @@
 from storage import *
 from tareas import Tarea
+from gestion_tareas import *
 
 listaTareas = []
 while True:
@@ -53,22 +54,8 @@ while True:
 
     elif seleccion_tarea == "4":
 
-        try:
-            tareaAEliminar = int(input("Ingrese el ID de la tarea a eliminar: "))
-            encontrada = False
-            for tarea in listaTareas:
-
-                if tarea._idTarea == tareaAEliminar:
-                    listaTareas.remove(tarea)
-                    encontrada = True
-                    print("Tarea eliminada.")
-                    break
-
-            if not encontrada:
-                print("No existe una tarea con ese ID.")
-
-        except ValueError:
-            print("Debe ingresar un número entero.")
+        tareaAEliminar = int(input("Ingrese el ID de la tarea a eliminar: "))
+        eliminar_tarea(listaTareas, tareaAEliminar)
 
     elif seleccion_tarea == "5":
 

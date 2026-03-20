@@ -1,9 +1,30 @@
 [
     {
         "id": 1,
-        "title": "pache",
-        "desc": "zurri",
+        "title": "Hola",
+        "desc": "Soy Fabri",
         "prioridad": 1,
         "estado": "hecha"
+    },
+    {
+        "id": 2,
+        "title": "farolito",
+        "desc": "los poiai",
+        "prioridad": 2,
+        "estado": "hecha"
+    },
+    {
+        "id": 4,
+        "title": "lalala",
+        "desc": "lwlwlw",
+        "prioridad": 1,
+        "estado": "pendiente"
+    },
+    {
+        "id": 6,
+        "title": "pendiente",
+        "desc": "lala",
+        "prioridad": 1,
+        "estado": "pendiente"
     }
 ]
