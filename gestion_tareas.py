@@ -39,3 +39,31 @@ def agregar_tarea(lista):
     tareaIngresada = Tarea(titulo_tarea, descripcion_tarea, prioridad_tarea, estado_tarea)
 
     lista.append(tareaIngresada)
+
+def mostrar_tareas(lista):
+    for tarea in lista:
+        if tarea._estado == "pendiente":
+            estado_mostrable = " "
+        else:
+            estado_mostrable = "X"
+        print(f'''[{estado_mostrable}] ({tarea._idTarea}) {tarea._titulo} - Prioridad: {tarea._prioridad}''')
+
+def cambiar_estado_tarea(lista, id):
+
+    tareaencontrada = False
+    try:
+        for tarea in lista:
+            if tarea._idTarea == id:
+                if tarea._estado == "pendiente":
+                    tarea._estado = "hecha"
+                else:
+                    tarea._estado = "pendiente"
+                tareaencontrada = True
+                print("Se cambió el estado de la tarea.")
+                break
+
+        if not tareaencontrada:
+            print("No se encontró el ID ingresado")
+
+    except ValueError:
+        print("Debe ingresar un numero entero")
