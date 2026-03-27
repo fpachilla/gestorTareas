@@ -17,7 +17,7 @@ def eliminar_tarea(lista, id):
     except ValueError:
         print("Debe ingresar un numero entero")
 
-def agregar_tarea(lista):
+def configurar_tarea(lista):
 
     titulo_tarea = input(f'Ingrese el titulo de la tarea: ')
     descripcion_tarea = input(f'Ingrese la descripcion de la tarea: ')
@@ -36,9 +36,14 @@ def agregar_tarea(lista):
     while (estado_tarea != "pendiente" and estado_tarea != "hecha"):
         estado_tarea = input(
             f'Solamente se puede ingresar "pendiente" o "hecha". Por favor ingrese una de esas opciones: ')
-    tareaIngresada = Tarea(titulo_tarea, descripcion_tarea, prioridad_tarea, estado_tarea)
 
+    crear_tarea(lista, titulo_tarea, descripcion_tarea, prioridad_tarea, estado_tarea)
+
+def crear_tarea(lista, titulo, descripcion, prioridad, estado):
+
+    tareaIngresada = Tarea(titulo, descripcion, prioridad, estado)
     lista.append(tareaIngresada)
+
 
 def mostrar_tareas(lista):
     for tarea in lista:

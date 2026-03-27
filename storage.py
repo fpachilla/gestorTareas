@@ -3,9 +3,15 @@ from tareas import Tarea
 
 def cargar_tareas():
     try:
-        with open('tasks.json', 'w', encoding='utf8') as archivo:
-            data = json.load(archivo)
-            return data
+        with open("tasks.json", "r", encoding="utf8") as archivo:
+            contenido = archivo.read().strip()
+
+            if not contenido:
+                return []
+
+            data = json.loads(contenido)
+
+            print(data)
 
     except FileNotFoundError:
         return []

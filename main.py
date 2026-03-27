@@ -3,6 +3,8 @@ from tareas import Tarea
 from gestion_tareas import *
 
 listaTareas = []
+cargar_tareas()
+
 while True:
     seleccion_tarea = input(f'''
     Seleccione la acción requerida:
@@ -16,7 +18,7 @@ while True:
     ''')
 
     if seleccion_tarea == "1":
-        agregar_tarea(listaTareas)
+        configurar_tarea(listaTareas)
 
     elif seleccion_tarea == "2":
         mostrar_tareas(listaTareas)
