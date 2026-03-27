@@ -1,7 +1,9 @@
 import json
+
+from gestion_tareas import crear_tarea
 from tareas import Tarea
 
-def cargar_tareas():
+def cargar_tareas(lista):
     try:
         with open("tasks.json", "r", encoding="utf8") as archivo:
             contenido = archivo.read().strip()
@@ -10,8 +12,8 @@ def cargar_tareas():
                 return []
 
             data = json.loads(contenido)
-
-            print(data)
+            for t in data:
+                crear_tarea(lista, t["title"], t["desc"], t["prioridad"], t["estado"])
 
     except FileNotFoundError:
         return []

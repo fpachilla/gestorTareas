@@ -3,7 +3,7 @@ from tareas import Tarea
 from gestion_tareas import *
 
 listaTareas = []
-cargar_tareas()
+cargar_tareas(listaTareas)
 
 while True:
     seleccion_tarea = input(f'''
