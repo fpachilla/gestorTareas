@@ -1,23 +1,26 @@
 [
     {
         "idTarea": 1,
-        "titulo": "a",
-        "descripcion": "b",
+        "titulo": "hola",
+        "descripcion": "soy",
         "prioridad": 1,
-        "estado": "hecha"
+        "estado": "hecha",
+        "fecha": "29/03/2026"
     },
     {
         "idTarea": 2,
-        "titulo": "roro",
-        "descripcion": "piroro",
-        "prioridad": 3,
-        "estado": "hecha"
+        "titulo": "chau",
+        "descripcion": "no soy",
+        "prioridad": 2,
+        "estado": "hecha",
+        "fecha": "29/03/2026"
     },
     {
-        "idTarea": 4,
-        "titulo": "Mardis",
-        "descripcion": "Palala",
-        "prioridad": 2,
-        "estado": "pendiente"
+        "idTarea": 3,
+        "titulo": "ksksk",
+        "descripcion": "wkwkwk",
+        "prioridad": 3,
+        "estado": "hecha",
+        "fecha": "29/03/2026"
     }
 ]

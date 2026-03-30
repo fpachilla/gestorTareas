@@ -1,4 +1,5 @@
 from tareas import Tarea
+from datetime import datetime
 
 def eliminar_tarea(lista, id):
 
@@ -37,13 +38,14 @@ def configurar_tarea(lista):
         estado_tarea = input(
             f'Solamente se puede ingresar "pendiente" o "hecha". Por favor ingrese una de esas opciones: ')
 
-    crear_tarea(lista, titulo_tarea, descripcion_tarea, prioridad_tarea, estado_tarea)
+    crear_tarea(lista, titulo_tarea, descripcion_tarea, prioridad_tarea, estado_tarea, 0)
 
-def crear_tarea(lista, titulo, descripcion, prioridad, estado):
+def crear_tarea(lista, titulo, descripcion, prioridad, estado, fecha):
 
-    tareaIngresada = Tarea(titulo, descripcion, prioridad, estado)
+    if fecha == 0:
+        fecha = datetime.now().strftime("%d/%m/%Y")
+    tareaIngresada = Tarea(titulo, descripcion, prioridad, estado, fecha)
     lista.append(tareaIngresada)
-
 
 def mostrar_tareas(lista):
     for tarea in lista:
@@ -51,7 +53,18 @@ def mostrar_tareas(lista):
             estado_mostrable = " "
         else:
             estado_mostrable = "X"
-        print(f'''[{estado_mostrable}] ({tarea._idTarea}) {tarea._titulo} - Prioridad: {tarea._prioridad}''')
+        print(f'''[{estado_mostrable}] ({tarea._idTarea}) {tarea._titulo} - Prioridad: {tarea._prioridad} - Fecha: {tarea._fecha}''')
+
+def mostrar_tareas_por_estado(lista, estado):
+    for tarea in lista:
+        if tarea._estado == "pendiente":
+            estado_mostrable = " "
+        else:
+            estado_mostrable = "X"
+
+        if tarea._estado == estado:
+            print(f'''[{estado_mostrable}] ({tarea._idTarea}) {tarea._titulo} - Prioridad: {tarea._prioridad} - Fecha: {tarea._fecha}''')
+
 
 def cambiar_estado_tarea(lista, id):
 

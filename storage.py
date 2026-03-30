@@ -12,10 +12,11 @@ def cargar_tareas(lista):
             data = json.loads(contenido) # Carga el contenido del archivo en data, como diccionario
             for t in data:
                 tareaCreada = Tarea(
-                    t["title"],
-                    t["desc"],
+                    t["titulo"],
+                    t["descripcion"],
                     t["prioridad"],
-                    t["estado"])
+                    t["estado"],
+                    t["fecha"])
                 lista.append(tareaCreada)
 
     except FileNotFoundError:
