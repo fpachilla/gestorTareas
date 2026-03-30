@@ -1,6 +1,4 @@
 import json
-
-from gestion_tareas import crear_tarea
 from tareas import Tarea
 
 def cargar_tareas(lista):
@@ -11,25 +9,23 @@ def cargar_tareas(lista):
             if not contenido:
                 return []
 
-            data = json.loads(contenido)
+            data = json.loads(contenido) # Carga el contenido del archivo en data, como diccionario
             for t in data:
-                crear_tarea(lista, t["title"], t["desc"], t["prioridad"], t["estado"])
+                tareaCreada = Tarea(
+                    t["title"],
+                    t["desc"],
+                    t["prioridad"],
+                    t["estado"])
+                lista.append(tareaCreada)
 
     except FileNotFoundError:
         return []
 
 def guardar_tareas(lista):
-
-    datos = []
-
-    for tarea in lista:
-        datos.append({
-            "id": tarea._idTarea,
-            "title": tarea._titulo,
-            "desc": tarea._descripcion,
-            "prioridad": tarea._prioridad,
-            "estado": tarea._estado
-        })
-
     with open("tasks.json", "w", encoding="utf8") as archivo:
-        json.dump(datos, archivo, indent=4)
+        json.dump(
+            [tarea.to_dict() for tarea in lista], # Convierte las tareas a diccionario para guardarlas en el JSON
+            archivo,
+            indent=4,
+            ensure_ascii=False
+        )

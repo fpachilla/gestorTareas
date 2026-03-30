@@ -1,23 +1,23 @@
 [
     {
-        "id": 1,
-        "title": "a",
-        "desc": "b",
+        "idTarea": 1,
+        "titulo": "a",
+        "descripcion": "b",
         "prioridad": 1,
         "estado": "hecha"
     },
     {
-        "id": 2,
-        "title": "r",
-        "desc": "i",
-        "prioridad": 3,
-        "estado": "pendiente"
-    },
-    {
-        "id": 3,
-        "title": "roro",
-        "desc": "piroro",
+        "idTarea": 2,
+        "titulo": "roro",
+        "descripcion": "piroro",
         "prioridad": 3,
         "estado": "hecha"
+    },
+    {
+        "idTarea": 4,
+        "titulo": "Mardis",
+        "descripcion": "Palala",
+        "prioridad": 2,
+        "estado": "pendiente"
     }
 ]

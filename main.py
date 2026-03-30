@@ -1,5 +1,4 @@
 from storage import *
-from tareas import Tarea
 from gestion_tareas import *
 
 listaTareas = []
