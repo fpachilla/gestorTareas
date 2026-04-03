@@ -27,6 +27,7 @@ while True:
     2-Ver solo tareas pendientes
     3-Ver solo tareas completadas
     4-Ver solo las más prioritarias
+    5-Volver al menú principal
                       
         ''')
         if opcion_filtro == "1":
@@ -41,12 +42,14 @@ while True:
         elif opcion_filtro == "4":
             mostrar_tareas_prioritarias(listaTareas)
 
-        elif opcion_filtro != ("1", "2", "3", "4"):
+        elif opcion_filtro == ("5"):
+            print("Volviendo al menú principal...")
+
+        elif opcion_filtro != ("1", "2", "3", "4", "5"):
             print("Por favor, seleccione una opción valida")
 
     elif seleccion_tarea == "3":
-        tareaACambiar = int(input(f'Ingrese el ID de tarea a la cual desea cambiar el estado: '))
-        cambiar_estado_tarea(listaTareas, tareaACambiar)
+        cambiar_estado_tarea(listaTareas)
 
     elif seleccion_tarea == "4":
 

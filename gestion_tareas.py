@@ -103,23 +103,27 @@ def mostrar_tareas_prioritarias(lista):
         if tarea._prioridad == 1:
             print(f'''[{estado_mostrable}] ({tarea._idTarea}) {tarea._titulo} - Prioridad: {tarea._prioridad} - Fecha: {tarea._fecha}''')
 
-
-def cambiar_estado_tarea(lista, id):
+def cambiar_estado_tarea(lista):
 
     tareaencontrada = False
-    try:
-        for tarea in lista:
-            if tarea._idTarea == id:
-                if tarea._estado == "pendiente":
-                    tarea._estado = "hecha"
-                else:
-                    tarea._estado = "pendiente"
-                tareaencontrada = True
-                print("Se cambió el estado de la tarea.")
+
+    while True:
+        try:
+            tareaACambiar = int(input(f'Ingrese el ID de tarea a la cual desea cambiar el estado: '))
+            for tarea in lista:
+                if tarea._idTarea == tareaACambiar:
+                    if tarea._estado == "pendiente":
+                        tarea._estado = "hecha"
+                    else:
+                        tarea._estado = "pendiente"
+                    tareaencontrada = True
+                    print("Se cambió el estado de la tarea.")
+
+            if tareaencontrada == True:
                 break
 
-        if not tareaencontrada:
-            print("No se encontró el ID ingresado")
+            if not tareaencontrada:
+                print("No se encontró el ID ingresado")
 
-    except ValueError:
-        print("Debe ingresar un numero entero")
+        except ValueError:
+            print("Debe ingresar un numero entero")
