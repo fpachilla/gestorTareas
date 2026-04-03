@@ -1,26 +1,10 @@
 [
     {
-        "idTarea": 1,
-        "titulo": "hola",
-        "descripcion": "soy",
-        "prioridad": 1,
-        "estado": "hecha",
-        "fecha": "29/03/2026"
-    },
-    {
         "idTarea": 2,
         "titulo": "chau",
         "descripcion": "no soy",
         "prioridad": 2,
         "estado": "hecha",
-        "fecha": "29/03/2026"
-    },
-    {
-        "idTarea": 3,
-        "titulo": "ksksk",
-        "descripcion": "wkwkwk",
-        "prioridad": 3,
-        "estado": "pendiente",
         "fecha": "29/03/2026"
     }
 ]

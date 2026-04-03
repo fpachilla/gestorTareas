@@ -53,8 +53,7 @@ while True:
 
     elif seleccion_tarea == "4":
 
-        tareaAEliminar = int(input("Ingrese el ID de la tarea a eliminar: "))
-        eliminar_tarea(listaTareas, tareaAEliminar)
+        eliminar_tarea(listaTareas)
 
     elif seleccion_tarea == "5":
 

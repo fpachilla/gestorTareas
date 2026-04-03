@@ -1,22 +1,28 @@
 from tareas import Tarea
 from datetime import datetime
 
-def eliminar_tarea(lista, id):
+def eliminar_tarea(lista):
 
     tareaencontrada = False
-    try:
-        for tarea in lista:
-            if tarea._idTarea == id:
-                lista.remove(tarea)
-                tareaencontrada = True
-                print("Tarea eliminada.")
+    while True:
+
+        try:
+            tareaAEliminar = int(input("Ingrese el ID de la tarea a eliminar: "))
+            for tarea in lista:
+                if tarea._idTarea == tareaAEliminar:
+                    lista.remove(tarea)
+                    tareaencontrada = True
+                    print("Tarea eliminada.")
+                    break
+
+            if tareaencontrada == True:
                 break
 
-        if not tareaencontrada:
-            print("No se encontró el ID ingresado")
+            if not tareaencontrada:
+                print("No se encontró el ID ingresado")
 
-    except ValueError:
-        print("Debe ingresar un numero entero")
+        except ValueError:
+            print("Debe ingresar un numero entero")
 
 def configurar_tarea(lista):
 
