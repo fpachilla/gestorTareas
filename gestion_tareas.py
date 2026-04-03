@@ -20,8 +20,35 @@ def eliminar_tarea(lista, id):
 
 def configurar_tarea(lista):
 
-    titulo_tarea = input(f'Ingrese el titulo de la tarea: ')
-    descripcion_tarea = input(f'Ingrese la descripcion de la tarea: ')
+    while True:
+        try:
+            titulo_tarea = input(f'Ingrese el titulo de la tarea: ')
+
+            if titulo_tarea.isnumeric():
+                print("El titulo de la tarea no puede ser un número")
+            elif len(titulo_tarea.strip()) == 0:                 # El metodo strip se usa para eliminar espacios al inicio y final del texto
+                print("El titulo de la tarea no puede estar vacío")
+            else:
+                break
+
+        except ValueError:
+            print("Debe ingresar un título válido")
+
+    while True:
+        try:
+            descripcion_tarea = input(f'Ingrese la descripcion de la tarea: ')
+
+            if descripcion_tarea.isnumeric():
+                print("La descripción de la tarea no puede ser un número")
+            elif len(
+                    descripcion_tarea.strip()) == 0:  # El metodo strip se usa para eliminar espacios al inicio y final del texto
+                print("La descripción de la tarea no puede estar vacío")
+            else:
+                break
+
+        except ValueError:
+            print("Debe ingresar una descripción válida")
+
     while True:
         try:
             prioridad_tarea = int(input("Ingrese prioridad (1-3): "))
@@ -33,6 +60,7 @@ def configurar_tarea(lista):
 
         except ValueError:
             print("Debe ingresar un número entero.")
+
     estado_tarea = input(f'Ingrese la estado de la tarea (solo puede ser "pendiente" o "hecha"): ')
     while (estado_tarea != "pendiente" and estado_tarea != "hecha"):
         estado_tarea = input(
@@ -63,6 +91,16 @@ def mostrar_tareas_por_estado(lista, estado):
             estado_mostrable = "X"
 
         if tarea._estado == estado:
+            print(f'''[{estado_mostrable}] ({tarea._idTarea}) {tarea._titulo} - Prioridad: {tarea._prioridad} - Fecha: {tarea._fecha}''')
+
+def mostrar_tareas_prioritarias(lista):
+    for tarea in lista:
+        if tarea._estado == "pendiente":
+            estado_mostrable = " "
+        else:
+            estado_mostrable = "X"
+
+        if tarea._prioridad == 1:
             print(f'''[{estado_mostrable}] ({tarea._idTarea}) {tarea._titulo} - Prioridad: {tarea._prioridad} - Fecha: {tarea._fecha}''')
 
 

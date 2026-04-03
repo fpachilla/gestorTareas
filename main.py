@@ -21,12 +21,12 @@ while True:
 
     elif seleccion_tarea == "2":
         opcion_filtro = input(f'''
-        ¿Deseas colocar algún filtro adicional?:
+    ¿Deseas colocar algún filtro adicional?:
 
-        1-No, quiero ver todas las tareas
-        2-Ver solo tareas pendientes
-        3-Ver solo tareas completadas
-        4-Ver solo las más prioritarias
+    1-No, quiero ver todas las tareas
+    2-Ver solo tareas pendientes
+    3-Ver solo tareas completadas
+    4-Ver solo las más prioritarias
                       
         ''')
         if opcion_filtro == "1":
@@ -39,7 +39,10 @@ while True:
             mostrar_tareas_por_estado(listaTareas, "hecha")
 
         elif opcion_filtro == "4":
-            print("trabajando...")
+            mostrar_tareas_prioritarias(listaTareas)
+
+        elif opcion_filtro != ("1", "2", "3", "4"):
+            print("Por favor, seleccione una opción valida")
 
     elif seleccion_tarea == "3":
         tareaACambiar = int(input(f'Ingrese el ID de tarea a la cual desea cambiar el estado: '))
@@ -53,3 +56,6 @@ while True:
     elif seleccion_tarea == "5":
 
         guardar_tareas(listaTareas)
+
+    elif seleccion_tarea != ("1", "2", "3", "4", "5"):
+        print("Por favor, seleccione una opción valida")
